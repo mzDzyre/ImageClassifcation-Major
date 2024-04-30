@@ -11,7 +11,7 @@ st.header('Flower Classification using Pytorch and CNN')
 
 import os
 class_names = list()
-for val in os.listdir('dataset/val/'): 
+for val in os.listdir('images/'): 
     class_names.append(val)
 
 # Load the saved model
