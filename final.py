@@ -20,6 +20,7 @@ model.fc = nn.Linear(model.fc.in_features, 1000)  # Adjust to match the original
 model.load_state_dict(torch.load('flower_classification_model.pth'))
 model.eval()
 
+# weights=ResNet18_Weights.DEFAULT
 
 with st.expander("About --- "):
     st.write("This model can detect Few images")
@@ -73,4 +74,8 @@ def classify_images(image_path):
 if uploaded_file is not None:
     print(uploaded_file)
     st.image(uploaded_file, width = 200)
-    st.markdown(classify_images(uploaded_file))
+    try:
+        st.markdown(classify_images(uploaded_file))
+    except Exception as e:
+        st.markdown(e)
+        st.markdown("Please Try again")
